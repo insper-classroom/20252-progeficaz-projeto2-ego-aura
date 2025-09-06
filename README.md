@@ -122,14 +122,6 @@ Todos os 12 testes passam com sucesso:
 - ✅ Teste de listagem por cidade
 - ✅ Teste de listagem geral
 
-## 🎯 Demonstração
-
-Para ver a API em funcionamento, execute:
-```bash
-python exemplo_uso.py
-```
-*(certifique-se de que a API esteja rodando)*
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **Framework:** Flask 2.3.3
