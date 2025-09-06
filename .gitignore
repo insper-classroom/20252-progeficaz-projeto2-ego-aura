@@ -224,3 +224,5 @@ static/uploads/
 # Arquivos de dados sensíveis
 secrets.json
 credentials.json
+
+.env

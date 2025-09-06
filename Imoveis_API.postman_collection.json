@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
+		"name": "Imóveis API",
+		"description": "Collection para testar a API de gerenciamento de imóveis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Verificar Status da API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						},
+						"description": "Verifica se a API está funcionando e se há conexão com o banco de dados"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imóveis - CRUD",
+			"item": [
+				{
+					"name": "Listar Todos os Imóveis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis"
+							]
+						},
+						"description": "Lista todos os imóveis cadastrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Imóvel por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"1"
+							]
+						},
+						"description": "Obtém um imóvel específico pelo ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Novo Imóvel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"Rua das Flores, 123\",\n    \"tipo_logradouro\": \"Rua\",\n    \"bairro\": \"Centro\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"01234-567\",\n    \"tipo\": \"Apartamento\",\n    \"valor\": 350000.00,\n    \"data_aquisicao\": \"2024-01-15\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/imoveis",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis"
+							]
+						},
+						"description": "Cria um novo imóvel"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Imóvel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"Rua das Flores, 123 - Apartamento 45\",\n    \"tipo_logradouro\": \"Rua\",\n    \"bairro\": \"Centro\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"01234-567\",\n    \"tipo\": \"Apartamento\",\n    \"valor\": 380000.00,\n    \"data_aquisicao\": \"2024-01-15\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/imoveis/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"1"
+							]
+						},
+						"description": "Atualiza um imóvel existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Imóvel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"1"
+							]
+						},
+						"description": "Remove um imóvel do banco de dados"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultas Específicas",
+			"item": [
+				{
+					"name": "Buscar por Tipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis/tipo/Apartamento",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"tipo",
+								"Apartamento"
+							]
+						},
+						"description": "Lista imóveis de um tipo específico (Apartamento, Casa, Terreno, etc.)"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Cidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis/cidade/São Paulo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"cidade",
+								"São Paulo"
+							]
+						},
+						"description": "Lista imóveis de uma cidade específica"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testes de Erro",
+			"item": [
+				{
+					"name": "Buscar Imóvel Inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/imoveis/9999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis",
+								"9999"
+							]
+						},
+						"description": "Testa busca de imóvel com ID inexistente (deve retornar 404)"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Imóvel com Dados Inválidos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"\",\n    \"cidade\": \"\",\n    \"valor\": \"valor_invalido\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/imoveis",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"imoveis"
+							]
+						},
+						"description": "Testa criação de imóvel com dados inválidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Rota Inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/rota/inexistente",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"rota",
+								"inexistente"
+							]
+						},
+						"description": "Testa acesso a uma rota inexistente (deve retornar 404)"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:5000",
+			"type": "string"
+		}
+	]
+}
