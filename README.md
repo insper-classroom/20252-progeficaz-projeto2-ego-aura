@@ -1,61 +1,58 @@
 # API REST Imobiliária
 
-Uma API REST completa para gerenciar imóveis de uma empresa imobiliária, desenvolvida com Flask e SQLite.
+Uma API REST completa para gerenciar imóveis de uma empresa imobiliária, desenvolvida com Flask e MySQL.
 
-## 📋 Funcionalidades
+A API estará disponível em `http://3.82.36.224:5000`
 
-- ✅ Listar todos os imóveis
-- ✅ Obter um imóvel específico por ID
-- ✅ Criar novo imóvel
-- ✅ Atualizar imóvel existente
-- ✅ Remover imóvel
-- ✅ Listar imóveis por tipo
-- ✅ Listar imóveis por cidade
-- ✅ Testes automatizados completos
+## Funcionalidades
 
-## 🏗️ Estrutura do Projeto
+- Listar todos os imóveis
+- Obter um imóvel específico por ID
+- Criar novo imóvel
+- Atualizar imóvel existente
+- Remover imóvel
+- Listar imóveis por tipo
+- Listar imóveis por cidade
+- Testes automatizados completos
+
+## Estrutura do Projeto
 
 ```
 projeto2/
-├── app.py                  # Aplicação Flask principal com todas as rotas da API
-├── database.py            # Configuração e funções do banco de dados SQLite
-├── models.py              # Modelo de dados do imóvel
-├── criar_banco.py         # Script para criar e popular o banco
-├── requirements.txt       # Dependências do projeto
-├── exemplo_uso.py         # Script de demonstração da API
-├── .gitignore            # Arquivos ignorados pelo Git
-├── imoveis.sql           # Arquivo original com estrutura e dados
+├── app.py                              # Aplicação Flask principal com todas as rotas da API
+├── database.py                         # Configuração e funções do banco de dados SQLite
+├── database_mysql.py                   # Configuração e funções do banco de dados MySQL
+├── models.py                           # Modelo de dados do imóvel
+├── criar_banco.py                      # Script para criar e popular o banco
+├── requirements.txt                    # Dependências do projeto
+├── .env.example                        # Exemplo de arquivo de configuração de ambiente
+├── .gitignore                          # Arquivos ignorados pelo Git
+├── imoveis.sql                         # Arquivo original com estrutura e dados
+├── Imoveis_API.postman_collection.json # Coleção do Postman para testes da API
+├── POSTMAN_COLLECTION.md               # Documentação da coleção do Postman
 └── tests/
-    ├── __init__.py       # Torna o diretório um pacote Python
-    └── test_api.py       # Testes automatizados da API
+    ├── __init__.py                     # Torna o diretório um pacote Python
+    └── test_api.py                     # Testes automatizados da API
 ```
 
-## 🚀 Instalação e Execução
+## Instalação e Execução
 
 1. **Instale as dependências:**
 ```bash
 pip install -r requirements.txt
 ```
-
-2. **Crie e popule o banco de dados:**
-```bash
-python criar_banco.py
-```
-
-3. **Execute a aplicação:**
+2. **Execute a aplicação:**
 ```bash
 python app.py
 ```
 
-A API estará disponível em `http://localhost:5000`
-
-## 🧪 Executar Testes
+## Executar Testes
 
 ```bash
 pytest tests/ -v
 ```
 
-## 📡 Endpoints da API
+## Endpoints da API
 
 ### Listar todos os imóveis
 - **GET** `/imoveis`
@@ -96,7 +93,7 @@ pytest tests/ -v
 - **GET** `/imoveis/cidade/<cidade>`
 - Exemplo: `/imoveis/cidade/São Paulo`
 
-## 🗄️ Estrutura do Banco de Dados
+## Estrutura do Banco de Dados
 
 A tabela `imoveis` possui os seguintes campos:
 - `id` (INTEGER, PRIMARY KEY)
@@ -109,40 +106,40 @@ A tabela `imoveis` possui os seguintes campos:
 - `valor` (REAL, opcional)
 - `data_aquisicao` (TEXT, opcional)
 
-## ✅ Testes Automatizados
+## Testes Automatizados
 
 Todos os 12 testes passam com sucesso:
-- ✅ Teste de listagem vazia
-- ✅ Teste de criação de imóvel
-- ✅ Teste de validação de campos obrigatórios
-- ✅ Teste de obtenção de imóvel existente/inexistente
-- ✅ Teste de atualização de imóvel existente/inexistente
-- ✅ Teste de remoção de imóvel existente/inexistente
-- ✅ Teste de listagem por tipo
-- ✅ Teste de listagem por cidade
-- ✅ Teste de listagem geral
+- Teste de listagem vazia
+- Teste de criação de imóvel
+- Teste de validação de campos obrigatórios
+- Teste de obtenção de imóvel existente/inexistente
+- Teste de atualização de imóvel existente/inexistente
+- Teste de remoção de imóvel existente/inexistente
+- Teste de listagem por tipo
+- Teste de listagem por cidade
+- Teste de listagem geral
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Framework:** Flask 2.3.3
-- **Banco de Dados:** SQLite
+- **Banco de Dados:** MySQL
 - **Testes:** pytest 7.4.2
 - **HTTP Client:** requests (para demonstrações)
 
-## 📊 Características
+## Características
 
-- ✅ Framework Flask
-- ✅ Banco SQLite com dados reais
-- ✅ Estrutura simples e funcional
-- ✅ Testes automatizados completos
-- ✅ Documentação clara
-- ✅ Adaptado ao arquivo imoveis.sql fornecido
-- ✅ Validação de dados
-- ✅ Tratamento de erros
-- ✅ API RESTful completa
-- ✅ Script de criação do banco
-- ✅ Exemplos de uso
+- Framework Flask
+- Banco MySQL com dados reais
+- Estrutura simples e funcional
+- Testes automatizados completos
+- Documentação clara
+- Adaptado ao arquivo imoveis.sql fornecido
+- Validação de dados
+- Tratamento de erros
+- API RESTful completa
+- Script de criação do banco
+- Coleção do Postman para testes
 
-## 📝 Notas de Implementação
+## Notas de Implementação
 
 Este projeto foi desenvolvido seguindo os requisitos do segundo projeto de Programação Eficaz, implementando uma API REST completa para gerenciamento de imóveis com todas as operações CRUD e funcionalidades de filtro por tipo e cidade.
